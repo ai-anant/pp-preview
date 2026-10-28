@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0176 Disable or misconfigure security measures · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0176</p>
+
+        <p class="meta">T0176 · Defense Evasion · TA07 · observed in 12 incident(s)</p>
+        <h1>Disable or misconfigure security measures</h1>
+        <div class="chips"><span class="chip">Cloud Security</span> <span class="chip">CI/CD Posture</span></div>
+        <p>Attackers disable or misconfigure security controls so that later activity is<br>not observed or blocked. In software supply chains this is more often a<br>complete disablement than a subtle misconfiguration: turning off a GitHub<br>Action required-review check, uninstalling an endpoint agent on a build<br>runner, skipping a signing gate, or emptying a security-group rule.<br>Misconfiguration (over-permissive logging, broken audit settings) remains<br>in scope as the quieter variant of the same Defense Evasion technique.</p>
+        <h2>Where this idea came from</h2><p class="meta">Security article</p><p>Cited from a security article or vendor blog in the original YAML; not a first-party incident report.</p><ul class='refs'><li><a href="https://www.upguard.com/blog/cloud-misconfiguration" rel="noopener">https://www.upguard.com/blog/cloud-misconfiguration</a></li></ul>
+        <h2>Sub-techniques</h2><ul><li><a href="T0144.html">T0144</a> Misconfigured traffic log settings</li><li><a href="T0146.html">T0146</a> Misconfigured audit logs settings</li></ul>
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1530</span> Use multi-factor authentication</li><li><span class="id">M1550</span> Implement strict access control for clouds</li><li><span class="id">M1720</span> Implement regular patches and updates</li><li><span class="id">M1760</span> Regularly review and update security configurations</li><li><span class="id">M1761</span> Implement automated security tools</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1260</span> Implement regular security audit and review</li><li><span class="id">D1261</span> Implement penetration testing</li><li><span class="id">D1262</span> Implement vulnerability assessment</li><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li><li><span class="id">D1520</span> Implement endpoint detection and response system</li></ul>
+        <h2>Observed in incidents (12)</h2><ul><li><a href="../incidents/AS288.html">kilocode npm early supply-chain risk signals</a></li><li><a href="../incidents/AS5.html">CCleaner 5.33 signed ShadowPad backdoor</a></li><li><a href="../incidents/AS197.html">actions-cool GitHub Action tags still serve Mini Shai-Hulud after re-enablement</a></li><li><a href="../incidents/AS307.html">Apex Accelerator published a malicious npm coding agent and a fake audit MCP</a></li><li><a href="../incidents/AS25.html">indexed-btree runtime npm loader</a></li><li><a href="../incidents/AS328.html">testmetest npm names ship a Miasma-family worm that wipes the home directory if a stolen GitHub token is revoked</a></li><li><a href="../incidents/AS293.html">Exposed operator staging host reveals autonomous AI-agent crypto-theft fleet</a></li><li><a href="../incidents/AS22.html">axios npm remote-access trojan</a></li><li><a href="../incidents/AS313.html">LiteLLM 1.107.0 built from a lookalike repository shipped a startup-hook stealer and hourly loader</a></li><li><a href="../incidents/AS2.html">3CX Desktop</a></li><li><a href="../incidents/AS295.html">DirtyBlanket fake Express/React packages spread a self-propagating Linux worm</a></li><li><a href="../incidents/AS292.html">Microsoft counterfeit-installer campaign — same-named archives regenerate server-side per download</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://www.upguard.com/blog/cloud-misconfiguration" rel="noopener">https://www.upguard.com/blog/cloud-misconfiguration</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

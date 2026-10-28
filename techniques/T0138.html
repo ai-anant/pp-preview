@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0138 Backdoor in code · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0138</p>
+
+        <p class="meta">T0138 · Persistence · TA05 · observed in 10 incident(s)</p>
+        <h1>Backdoor in code</h1>
+        <div class="chips"><span class="chip">Code Security</span> <span class="chip">Open Source Security</span> <span class="chip">SCM Posture</span> <span class="chip">CI/CD Posture</span></div>
+        <p>Backdoor in code attack technique involves inserting a malicious code segment or backdoor into the software codebase, which allows the attacker to maintain access and control over the system even after their initial access has been removed or blocked.<br>In this attack, the attacker gains access to the codebase through various means, such as exploiting vulnerabilities or stealing credentials. <br>Once they have gained access, the attacker inserts a malicious code segment or backdoor into the codebase. <br>This code segment may be designed to execute specific malicious activities, such as stealing sensitive information, or to provide the attacker with continued access and control over the system.</p>
+        <h2>Where this idea came from</h2><p class="meta">Security research</p><p>Identified in published CI/CD or supply-chain security research cited below.</p><ul class='refs'><li><a href="https://kerkour.com/supply-chain-attacks-and-backdoored-dependencies" rel="noopener">https://kerkour.com/supply-chain-attacks-and-backdoored-dependencies</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1550</span> Implement strict access control for clouds</li><li><span class="id">M1731</span> Implement verification of signed commits</li><li><span class="id">M1732</span> Implement code scanning for security risks</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1260</span> Implement regular security audit and review</li><li><span class="id">D1261</span> Implement penetration testing</li><li><span class="id">D1262</span> Implement vulnerability assessment</li><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li></ul>
+        <h2>Observed in incidents (10)</h2><ul><li><a href="../incidents/AS62.html">Operation ShadowHammer (ASUS Live Update)</a></li><li><a href="../incidents/AS35.html">PolinRider poisons visanduma/nova-two-factor Packagist via Git</a></li><li><a href="../incidents/AS71.html">NotPetya via M.E.Doc accounting-software updates</a></li><li><a href="../incidents/AS304.html">GhostAction steals CI secrets, then autoruns a stealer from a fake font</a></li><li><a href="../incidents/AS7.html">XZ Utils backdoor</a></li><li><a href="../incidents/AS332.html">Rank Math PRO 3.0.123 downloads carried malware that plants a recreating backdoor</a></li><li><a href="../incidents/AS195.html">DAEMON Tools signed installers backdoored (Apr–May 2026)</a></li><li><a href="../incidents/AS21.html">Deep-Live-Cam malicious git dependency</a></li><li><a href="../incidents/AS1.html">Webmin 1.890–1.920 build-server backdoor</a></li><li><a href="../incidents/AS19.html">Brevo Cloudflare Worker ClickFix</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://kerkour.com/supply-chain-attacks-and-backdoored-dependencies" rel="noopener">https://kerkour.com/supply-chain-attacks-and-backdoored-dependencies</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

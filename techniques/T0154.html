@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0154 Malicious IDE extension · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0154</p>
+
+        <p class="meta">T0154 · Initial Access · TA03 · observed in 18 incident(s)</p>
+        <h1>Malicious IDE extension</h1>
+        <div class="chips"><span class="chip">Open Source Security</span></div>
+        <p>Malicious IDE extension attack is an attack technique in which an attacker creates a malicious extension for an Integrated Development Environment (IDE) and uploads it to the IDE&#x27;s extension marketplace or repository. <br>The malicious extension may appear to be a legitimate tool or add-on, but when installed, it can perform unauthorized actions such as stealing user credentials or introducing vulnerabilities in the code.<br>Once installed, a malicious IDE extension can access the developer&#x27;s code, which can contain sensitive information such as access keys, passwords, and credentials. <br>This information can then be used by the attacker to gain unauthorized access to cloud resources, steal data, or launch further attacks.</p>
+        <h2>Where this idea came from</h2><p class="meta">Security research</p><p>DarkGPT, Nx Console; DEF CON 34: “Install Me Maybe” (claimable extension IDs) and “LGTM: Bypassing an LLM Build Gate When Prompt Injection Fails” (Donenfeld) extend the class; Donenfeld’s bio notes CI/CD supply-chain findings in Microsoft, SAP, Red Hat, Linux Foundation projects.</p><ul class='refs'><li><a href="https://blog.aquasec.com/can-you-trust-your-vscode-extensions" rel="noopener">https://blog.aquasec.com/can-you-trust-your-vscode-extensions</a></li><li><a href="https://www.blackhat.com/us-26/briefings/schedule/index.html" rel="noopener">https://www.blackhat.com/us-26/briefings/schedule/index.html</a></li><li><a href="https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66645" rel="noopener">https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66645</a></li><li><a href="https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66588" rel="noopener">https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66588</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1540</span> Use trusted sources</li><li><span class="id">M1541</span> Read reviews and ratings</li><li><span class="id">M1542</span> Check extension permissions</li><li><span class="id">M1543</span> Update extensions regularly</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li><li><span class="id">D1520</span> Implement endpoint detection and response system</li></ul>
+        <h2>Observed in incidents (18)</h2><ul><li><a href="../incidents/AS224.html">IoliteLabs Solidity extensions shipped backdoor</a></li><li><a href="../incidents/AS60.html">Firefox Add-ons crypto-wallet theft</a></li><li><a href="../incidents/AS63.html">DarkGPT / Codo-AI / bitcoin-auto-trading VS Code extensions</a></li><li><a href="../incidents/AS93.html">Cline v2.3.0 prompt-injection to unauthorized actions</a></li><li><a href="../incidents/AS203.html">Amazon Q extension prompt injection</a></li><li><a href="../incidents/AS33.html">TeamPCP DUSTMAKER AI workspace poisoning</a></li><li><a href="../incidents/AS55.html">GlassWorm across GitHub, npm, Open VSX, VS Code, Python</a></li><li><a href="../incidents/AS192.html">Nx Console VS Code 18.95.0 (GitHub internal repo theft)</a></li><li><a href="../incidents/AS41.html">DPRK Contagious Interview (BeaverTail / npm + git)</a></li><li><a href="../incidents/AS47.html">DPRK VS Code dictionary and tasks.json droppers</a></li><li><a href="../incidents/AS30.html">Hades .pth and AI-assistant config persistence</a></li><li><a href="../incidents/AS327.html">WIZVERA VeraPort plugin installed malware signed with stolen certificates</a></li><li><a href="../incidents/AS238.html">Nano extensions shipped malicious updates</a></li><li><a href="../incidents/AS58.html">Chrome and Edge crypto-wallet drainer extensions</a></li><li><a href="../incidents/AS16.html">TanStack Mini Shai-Hulud (CVE-2026-45321)</a></li><li><a href="../incidents/AS172.html">npm packages hijack Cursor on macOS</a></li><li><a href="../incidents/AS45.html">PolinRider (DPRK) Git-to-registry jump</a></li><li><a href="../incidents/AS221.html">The Great Suspender Chrome extension hijacked</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://blog.aquasec.com/can-you-trust-your-vscode-extensions" rel="noopener">https://blog.aquasec.com/can-you-trust-your-vscode-extensions</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

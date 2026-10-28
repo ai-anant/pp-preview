@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ultralytics PyPI compromise · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS13</p>
+
+        <p class="meta">AS13 · 2024-12</p>
+        <h1>Ultralytics PyPI compromise</h1>
+        <p><a class="plat" href="../platforms/pypi.html">PyPI</a><a class="plat" href="../platforms/github-actions.html">GitHub Actions</a></p>
+        <p>In December 2024 versions of the Ultralytics Python package on PyPI were<br>observed shipping a cryptominer. Investigation pointed at a compromised<br>GitHub Actions workflow used to publish to PyPI, not at a direct PyPI<br>account password theft. The incident sits at the intersection of T0122<br>(third-party / CI action abuse), T0109 (malicious artifact), and T0139<br>(resource hijacking), and shows that &quot;who can publish the package&quot; is<br>often the CI identity.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0122.html">T0122</a> Vulnerability in third-party CI/CD actions</li><li><a href="../techniques/T0109.html">T0109</a> Publish malicious artifact</li><li><a href="../techniques/T0198.html">T0198</a> Malicious Build Time Dependencies</li><li><a href="../techniques/T0159.html">T0159</a> Malicious artifact execution</li><li><a href="../techniques/T0139.html">T0139</a> Resource hijacking</li></ul>
+        <h2><span class="stage">supply-chain</span> Ultralytics CI publish path</h2><div class="card"><p class="meta"><a href="../techniques/T0122.html">T0122</a> · Initial Access · Vulnerability in third-party CI/CD actions</p><p>A GitHub Actions publishing workflow was the likely injection point<br>for the malicious release.</p></div><div class="card"><p class="meta"><a href="../techniques/T0109.html">T0109</a> · Resource Development · Publish malicious artifact</p><p>Poisoned versions were uploaded to PyPI under the real project name.</p></div><div class="card"><p class="meta"><a href="../techniques/T0198.html">T0198</a> · Defense Evasion · Malicious Build Time Dependencies</p><p>The miner was introduced around the build/publish step rather than<br>as an obvious source-tree commit reviewers would catch.</p></div><h2><span class="stage">post-supply-chain</span> PyPI consumers</h2><div class="card"><p class="meta"><a href="../techniques/T0159.html">T0159</a> · Execution · Malicious artifact execution</p><p><code>pip install ultralytics</code> of the affected versions ran the miner.</p></div><div class="card"><p class="meta"><a href="../techniques/T0139.html">T0139</a> · Impact · Resource hijacking</p><p>CPU/GPU of installing hosts was used for cryptocurrency mining.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://github.com/ultralytics/ultralytics/issues/18027" rel="noopener">https://github.com/ultralytics/ultralytics/issues/18027</a></li><li><a href="https://www.stepsecurity.io/blog/crypto-mining-campaign-targets-ultralytics-pypi-package" rel="noopener">https://www.stepsecurity.io/blog/crypto-mining-campaign-targets-ultralytics-pypi-package</a></li><li><a href="https://github.com/ultralytics/ultralytics/issues/18029" rel="noopener">https://github.com/ultralytics/ultralytics/issues/18029</a></li><li><a href="https://github.com/ultralytics/ultralytics/security/advisories/GHSA-32hc-9xrg-cc9g" rel="noopener">https://github.com/ultralytics/ultralytics/security/advisories/GHSA-32hc-9xrg-cc9g</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elf-Stats Christmas npm spam worm · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS56</p>
+
+        <p class="meta">AS56 · 2025-12</p>
+        <h1>Elf-Stats Christmas npm spam worm</h1>
+        <p><a class="plat" href="../platforms/npm.html">npm</a></p>
+        <p>On 3 December 2025 OpenSourceMalware named Elf-Stats: a Christmas-themed<br>npm spam campaign of packages whose names start with elf-stats. 36<br>packages across 23 npm users at publication, with package.json claiming<br>automatic generation every two minutes. Payload exfiltrated filenames<br>under /opt to a webhook.site URL. Low likelihood of accidental install<br>given the names; still a worm that inflates the malicious-package corpus.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0108.html">T0108</a> Accounts in public registry</li><li><a href="../techniques/T0109.html">T0109</a> Publish malicious artifact</li></ul>
+        <h2><span class="stage">supply-chain</span> npm</h2><div class="card"><p class="meta"><a href="../techniques/T0108.html">T0108</a> · Resource Development · Accounts in public registry</p><p>23 npm users publishing elf-stats-* packages.</p></div><div class="card"><p class="meta"><a href="../techniques/T0109.html">T0109</a> · Resource Development · Publish malicious artifact</p><p>Auto-generated packages every two minutes.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://opensourcemalware.com/blog/elf-stats-npm-christmas-spam-campaign" rel="noopener">https://opensourcemalware.com/blog/elf-stats-npm-christmas-spam-campaign</a></li><li><a href="https://socket.dev/blog/elves-on-npm" rel="noopener">https://socket.dev/blog/elves-on-npm</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

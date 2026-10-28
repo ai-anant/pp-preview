@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eslint-scope and eslint-config-eslint malicious publishes · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS46</p>
+
+        <p class="meta">AS46 · 2018-07</p>
+        <h1>eslint-scope and eslint-config-eslint malicious publishes</h1>
+        <p><a class="plat" href="../platforms/npm.html">npm</a><a class="plat" href="../platforms/workstation.html">Developer workstation</a></p>
+        <p>On 12 July 2018 the npm accounts for eslint-scope and eslint-config-eslint<br>were compromised and malicious versions published. A postinstall script<br>harvested npm credentials from the developer machine and sent them to<br>an attacker server. ESLint’s official postmortem is the primary record.<br>This is the classic “popular linter as credential harvester” case that<br>the inherited corpus never documented.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0113.html">T0113</a> Compromised user account</li><li><a href="../techniques/T0109.html">T0109</a> Publish malicious artifact</li><li><a href="../techniques/T0151.html">T0151</a> Installation scripts</li><li><a href="../techniques/T0140.html">T0140</a> Harvest tokens from environment variables</li><li><a href="../techniques/T0121.html">T0121</a> Compromised legitimate artifact</li></ul>
+        <h2><span class="stage">supply-chain</span> eslint-scope on npm</h2><div class="card"><p class="meta"><a href="../techniques/T0113.html">T0113</a> · Initial Access · Compromised user account</p><p>Maintainer npm accounts for eslint-scope / eslint-config-eslint taken over.</p></div><div class="card"><p class="meta"><a href="../techniques/T0109.html">T0109</a> · Resource Development · Publish malicious artifact</p><p>Malicious versions published under the real package names.</p></div><div class="card"><p class="meta"><a href="../techniques/T0151.html">T0151</a> · Execution · Installation scripts</p><p>postinstall harvested the local npm token.</p></div><div class="card"><p class="meta"><a href="../techniques/T0140.html">T0140</a> · Credential Access · Harvest tokens from environment variables</p><p>npm credentials stolen from the installing developer.</p></div><div class="card"><p class="meta"><a href="../techniques/T0121.html">T0121</a> · Resource Development · Compromised legitimate artifact</p><p>Consumers of the real eslint-scope name received the harvester.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/" rel="noopener">https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

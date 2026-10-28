@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go decimal library typosquat with DNS backdoor · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS153</p>
+
+        <p class="meta">AS153 · 2026-05</p>
+        <h1>Go decimal library typosquat with DNS backdoor</h1>
+        <p><a class="plat" href="../platforms/golang.html">Go modules</a></p>
+        <p>Socket: long-running typosquat of a popular Go decimal library with<br>a DNS backdoor.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0129.html">T0129</a> Typosquatting</li><li><a href="../techniques/T0145.html">T0145</a> Bypass of outbound traffic control</li></ul>
+        <h2><span class="stage">supply-chain</span> campaign</h2><div class="card"><p class="meta"><a href="../techniques/T0129.html">T0129</a> · Initial Access · Typosquatting</p><p>Go decimal library lookalike.</p></div><div class="card"><p class="meta"><a href="../techniques/T0145.html">T0145</a> · Exfiltration · Bypass of outbound traffic control</p><p>DNS backdoor.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://socket.dev/blog/popular-go-decimal-library-typosquat-dns-backdoor" rel="noopener">https://socket.dev/blog/popular-go-decimal-library-typosquat-dns-backdoor</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

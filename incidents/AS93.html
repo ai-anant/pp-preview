@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cline v2.3.0 prompt-injection to unauthorized actions · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS93</p>
+
+        <p class="meta">AS93 · 2026-03</p>
+        <h1>Cline v2.3.0 prompt-injection to unauthorized actions</h1>
+        <p><a class="plat" href="../platforms/vscode.html">VS Code / IDE</a><a class="plat" href="../platforms/ai-agents.html">AI coding agents</a></p>
+        <p>SafeDep analyzed a compromise of AI coding agent Cline v2.3.0: prompt<br>injection leading to unauthorized actions in the developer workspace.<br>Adjacent to T0210 (poisoned agent config) and AS27 (hijacked assistant<br>spreading Shai-Hulud).</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0210.html">T0210</a> Poison AI coding-agent config or workspace</li><li><a href="../techniques/T0154.html">T0154</a> Malicious IDE extension</li></ul>
+        <h2><span class="stage">supply-chain</span> agent prompt injection</h2><div class="card"><p class="meta"><a href="../techniques/T0210.html">T0210</a> · Persistence · Poison AI coding-agent config or workspace</p><p>Prompt injection in Cline v2.3.0 drove unauthorized actions.</p></div><div class="card"><p class="meta"><a href="../techniques/T0154.html">T0154</a> · Initial Access · Malicious IDE extension</p><p>Compromised agent/extension in the IDE.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://safedep.io/cline-cli-compromised" rel="noopener">https://safedep.io/cline-cli-compromised</a></li><li><a href="https://cline.bot/blog/post-mortem-unauthorized-cline-cli-npm" rel="noopener">https://cline.bot/blog/post-mortem-unauthorized-cline-cli-npm</a></li><li><a href="https://www.stepsecurity.io/blog/cline-supply-chain-attack-detected-cline-2-3-0-silently-installs-openclaw" rel="noopener">https://www.stepsecurity.io/blog/cline-supply-chain-attack-detected-cline-2-3-0-silently-installs-openclaw</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

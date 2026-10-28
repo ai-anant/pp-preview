@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0105 Active scanning · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0105</p>
+
+        <p class="meta">T0105 · Reconnaissance · TA01 · observed in 2 incident(s)</p>
+        <h1>Active scanning</h1>
+        <div class="chips"><span class="chip">Cloud Security</span></div>
+        <p>This technique involves actively scanning an organization&#x27;s cloud infrastructure for vulnerabilities and misconfigurations that can be exploited by attackers to gain unauthorized access or cause system disruption.<br>An attacker can use this technique to identify vulnerable assets within an organization&#x27;s cloud infrastructure and develop an understanding of the target&#x27;s attack surface.<br>By conducting active scanning, an attacker can gather information about an organization&#x27;s network topology, application architecture, and security controls, and use this information to plan and execute more effective attacks.</p>
+        <h2>Where this idea came from</h2><p class="meta">Security research</p><p>Identified in published CI/CD or supply-chain security research cited below.</p><ul class='refs'><li><a href="https://www.aquasec.com/cloud-native-academy/cspm/cloud-security-scanner/" rel="noopener">https://www.aquasec.com/cloud-native-academy/cspm/cloud-security-scanner/</a></li><li><a href="https://github.com/prowler-cloud/prowler" rel="noopener">https://github.com/prowler-cloud/prowler</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1450</span> Implement zero trust</li><li><span class="id">M1451</span> Use network segmentation</li><li><span class="id">M1550</span> Implement strict access control for clouds</li><li><span class="id">M1720</span> Implement regular patches and updates</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1261</span> Implement penetration testing</li><li><span class="id">D1262</span> Implement vulnerability assessment</li><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li></ul>
+        <h2>Observed in incidents (2)</h2><ul><li><a href="../incidents/AS6.html">SolarWinds</a></li><li><a href="../incidents/AS293.html">Exposed operator staging host reveals autonomous AI-agent crypto-theft fleet</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://www.aquasec.com/cloud-native-academy/cspm/cloud-security-scanner/" rel="noopener">https://www.aquasec.com/cloud-native-academy/cspm/cloud-security-scanner/</a></li><li><a href="https://github.com/prowler-cloud/prowler" rel="noopener">https://github.com/prowler-cloud/prowler</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

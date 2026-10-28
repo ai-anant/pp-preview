@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0206 Forge or omit build provenance · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0206</p>
+
+        <p class="meta">T0206 · Defense Evasion · TA07 · observed in 7 incident(s)</p>
+        <h1>Forge or omit build provenance</h1>
+        <div class="chips"><span class="chip">CI/CD Posture</span> <span class="chip">Artifact Security</span> <span class="chip">SCM Posture</span></div>
+        <p>The attacker ships an artifact without truthful provenance — no SBOM, a<br>forged SLSA attestation, or a provenance document that names the wrong<br>source repo, builder, or commit. NIST SSDF PS.3.2 and SLSA Build L2+<br>exist so consumers can reject unofficial builds; forging or skipping that<br>paperwork is how a SolarWinds-style implant still looks like a legitimate<br>vendor release. Distinct from malicious code in the artifact (T0191): this<br>technique is about lying about *how* the artifact was produced.</p>
+        <h2>Where this idea came from</h2><p class="meta">Standard or guidance</p><p>This catalogue, from NIST SSDF PS.3.2 and SLSA build threats (forge/omit provenance).</p><ul class='refs'><li><a href="https://slsa.dev/spec/v1.0/threats" rel="noopener">https://slsa.dev/spec/v1.0/threats</a></li><li><a href="https://csrc.nist.gov/pubs/sp/800/218/final" rel="noopener">https://csrc.nist.gov/pubs/sp/800/218/final</a></li><li><a href="https://www.cisa.gov/resources-tools/resources/secure-software-development-attestation-form" rel="noopener">https://www.cisa.gov/resources-tools/resources/secure-software-development-attestation-form</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1200</span> Verify package authenticity</li><li><span class="id">M1501</span> Require SBOM from all third-party suppliers</li><li><span class="id">M1291</span> Verify package or container sources</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1500</span> Configure monitoring of used artifacts and open-source libraries</li><li><span class="id">D1262</span> Implement vulnerability assessment</li></ul>
+        <h2>Observed in incidents (7)</h2><ul><li><a href="../incidents/AS78.html">@velora-dex/sdk 9.4.1 build-pipeline backdoor</a></li><li><a href="../incidents/AS33.html">TeamPCP DUSTMAKER AI workspace poisoning</a></li><li><a href="../incidents/AS6.html">SolarWinds</a></li><li><a href="../incidents/AS74.html">Nx s1ngularity (stolen npm token via Actions injection)</a></li><li><a href="../incidents/AS28.html">Keyv / Cacheable ChainDrop worm</a></li><li><a href="../incidents/AS34.html">GHAPPIER loader via @dforge-core/dforge-mcp trusted publishing</a></li><li><a href="../incidents/AS313.html">LiteLLM 1.107.0 built from a lookalike repository shipped a startup-hook stealer and hourly loader</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://slsa.dev/spec/v1.0/threats" rel="noopener">https://slsa.dev/spec/v1.0/threats</a></li><li><a href="https://csrc.nist.gov/pubs/sp/800/218/final" rel="noopener">https://csrc.nist.gov/pubs/sp/800/218/final</a></li><li><a href="https://www.cisa.gov/resources-tools/resources/secure-software-development-attestation-form" rel="noopener">https://www.cisa.gov/resources-tools/resources/secure-software-development-attestation-form</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

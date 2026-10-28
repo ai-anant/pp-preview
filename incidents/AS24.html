@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-hosted GitHub Actions runners (Praetorian Gato) · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS24</p>
+
+        <p class="meta">AS24 · 2023-01</p>
+        <h1>Self-hosted GitHub Actions runners (Praetorian Gato)</h1>
+        <p><a class="plat" href="../platforms/github-actions.html">GitHub Actions</a></p>
+        <p>Praetorian&#x27;s 2022–2023 red-team work, released as Gato (GitHub Attack<br>Toolkit) at ShmooCon 2023, showed that non-ephemeral self-hosted Actions<br>runners are a supply-chain persistence and lateral-movement platform.<br>A job on the runner executes on the underlying host, on the internal<br>network, and can schedule follow-on workflows. GitHub&#x27;s own docs warn<br>against using self-hosted runners on public repos. T0148 was identified<br>from this class of operations, not from one public victim advisory.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0148.html">T0148</a> Scheduled tasks on self hosted runner</li><li><a href="../techniques/T0132.html">T0132</a> Overprivileged CI/CD Runners</li><li><a href="../techniques/T0166.html">T0166</a> Trigger pipeline execution</li></ul>
+        <h2><span class="stage">supply-chain</span> Self-hosted runner</h2><div class="card"><p class="meta"><a href="../techniques/T0148.html">T0148</a> · Persistence · Scheduled tasks on self hosted runner</p><p>Self-hosted runners persist the environment between jobs; a malicious<br>workflow can leave scheduled tasks or extra runner registrations.</p></div><div class="card"><p class="meta"><a href="../techniques/T0132.html">T0132</a> · Privilege Escalation · Overprivileged CI/CD Runners</p><p>The runner host sits inside the org network and holds deployment<br>credentials the public GitHub-hosted runner never sees.</p></div><div class="card"><p class="meta"><a href="../techniques/T0166.html">T0166</a> · Execution · Trigger pipeline execution</p><p>Gato&#x27;s attack module pushes a workflow or opens a fork PR that<br>executes on the self-hosted runner.</p></div>
+        <div class="card gaps"><h3>Framework gaps noted</h3><ul><li>Public named-victim write-ups for this pattern exist in later Actions worms; this story records the research identification of T0148.</li></ul></div>
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://www.praetorian.com/blog/introducing-gato-for-ci-cd-exploitation" rel="noopener">https://www.praetorian.com/blog/introducing-gato-for-ci-cd-exploitation</a></li><li><a href="https://www.praetorian.com/blog/self-hosted-github-runners-are-backdoors/" rel="noopener">https://www.praetorian.com/blog/self-hosted-github-runners-are-backdoors/</a></li><li><a href="https://github.com/praetorian-inc/gato" rel="noopener">https://github.com/praetorian-inc/gato</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

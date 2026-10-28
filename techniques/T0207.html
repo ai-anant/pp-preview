@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0207 Skip or forge artifact integrity verification · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0207</p>
+
+        <p class="meta">T0207 · Defense Evasion · TA07 · observed in 9 incident(s)</p>
+        <h1>Skip or forge artifact integrity verification</h1>
+        <div class="chips"><span class="chip">Artifact Security</span> <span class="chip">Open Source Security</span> <span class="chip">CI/CD Posture</span></div>
+        <p>Consumers are supposed to verify packages, containers, and third-party<br>scripts (checksums, signatures, Sigstore, Subresource Integrity). The<br>attacker relies on that check never running, or supplies a matching but<br>attacker-controlled signature. OWASP CICD-SEC-9 names the control gap;<br>this technique is the attacker side. Polyfill.io hotlinks without SRI and<br>unsigned CI helper scripts are typical realizations.</p>
+        <h2>Where this idea came from</h2><p class="meta">Standard or guidance</p><p>Polyfill.io SRI gap, fwupd CVE-2020-10759; DEF CON 34: “LGTM: Bypassing an LLM Build Gate When Prompt Injection Fails” (Donenfeld) — model-based build gates as the new verification boundary.</p><ul class='refs'><li><a href="https://owasp.org/www-project-top-10-ci-cd-security-risks/" rel="noopener">https://owasp.org/www-project-top-10-ci-cd-security-risks/</a></li><li><a href="https://www.w3.org/TR/SRI/" rel="noopener">https://www.w3.org/TR/SRI/</a></li><li><a href="https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66588" rel="noopener">https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66588</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1200</span> Verify package authenticity</li><li><span class="id">M1291</span> Verify package or container sources</li><li><span class="id">M1090</span> Implement code and image signing</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1090</span> Implement package or image integrity verification</li><li><span class="id">D1500</span> Configure monitoring of used artifacts and open-source libraries</li></ul>
+        <h2>Observed in incidents (9)</h2><ul><li><a href="../incidents/AS335.html">A Brazilian Magecart group appended a card skimmer to Convertr&#x27;s own Plausible analytics script, skimming every merchant checkout</a></li><li><a href="../incidents/AS296.html">MacSync via signed fake Claude Desktop installers on a lookalike download site</a></li><li><a href="../incidents/AS8.html">Polyfill.io CDN takeover</a></li><li><a href="../incidents/AS310.html">GlassWorm-hijacked contributor replaced OVHcloud CLI release assets on five published versions</a></li><li><a href="../incidents/AS3.html">Codecov Breach</a></li><li><a href="../incidents/AS309.html">UNC7017 swapped AOMEI update config for minutes at a time</a></li><li><a href="../incidents/AS295.html">DirtyBlanket fake Express/React packages spread a self-propagating Linux worm</a></li><li><a href="../incidents/AS287.html">fwupd dangling S3 bucket and CVE-2020-10759 signature-verification bypass</a></li><li><a href="../incidents/AS292.html">Microsoft counterfeit-installer campaign — same-named archives regenerate server-side per download</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://owasp.org/www-project-top-10-ci-cd-security-risks/" rel="noopener">https://owasp.org/www-project-top-10-ci-cd-security-risks/</a></li><li><a href="https://www.w3.org/TR/SRI/" rel="noopener">https://www.w3.org/TR/SRI/</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

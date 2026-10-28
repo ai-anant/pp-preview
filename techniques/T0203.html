@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0203 Discover localized out-of-band deployments · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0203</p>
+
+        <p class="meta">T0203 · Reconnaissance · TA01 · identified from research/guidance</p>
+        <h1>Discover localized out-of-band deployments</h1>
+        <div class="chips"><span class="chip">CI/CD Posture</span> <span class="chip">Open Source Security</span> <span class="chip">SCM Posture</span> <span class="chip">Artifact Security</span></div>
+        <p>Attackers look for evidence of an out-of-band or &quot;localized&quot; deployment<br>path they can hijack — a <code>package.json</code> script that SSHes to production,<br>a Makefile target that publishes without the main pipeline, a leftover<br><code>deploy.sh</code>, or a personal access token used by a developer laptop.<br>These paths are rarely covered by the same reviews, SBOMs, or admission<br>controls as the official CI/CD system, which makes them high-value<br>reconnaissance targets.</p>
+        <h2>Where this idea came from</h2><p class="meta">Standard or guidance</p><p>This catalogue, from upstream issue #23; cited OWASP Top 10 CI/CD.</p><ul class='refs'><li><a href="https://owasp.org/www-project-top-10-ci-cd-security-risks/" rel="noopener">https://owasp.org/www-project-top-10-ci-cd-security-risks/</a></li><li><a href="https://github.com/pbom-dev/OSCAR/issues/23" rel="noopener">https://github.com/pbom-dev/OSCAR/issues/23</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1503</span> Implement SCA analysis</li><li><span class="id">M1720</span> Implement regular patches and updates</li><li><span class="id">M1220</span> Use only trusted third-party Github actions from reputable sources</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1500</span> Configure monitoring of used artifacts and open-source libraries</li><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li></ul>
+        <div class='notice'><strong>Identified, not yet observed here.</strong> This technique set includes behaviors from pentest research, defender guidance, and analog attacker behavior — not only from named public breaches. No incident in this corpus maps here yet.</div>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://owasp.org/www-project-top-10-ci-cd-security-risks/" rel="noopener">https://owasp.org/www-project-top-10-ci-cd-security-risks/</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

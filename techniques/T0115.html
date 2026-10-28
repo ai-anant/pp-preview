@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0115 Repojacking · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0115</p>
+
+        <p class="meta">T0115 · Initial Access · TA03 · observed in 1 incident(s)</p>
+        <h1>Repojacking</h1>
+        <div class="chips"><span class="chip">Container Security</span> <span class="chip">Open Source Security</span></div>
+        <p>Dependency repository hijacking (aka repo jacking) is an obscure supply chain vulnerability, conceptually similar to subdomain takeover, that impacts over 70,000 open-source projects and affects everything from web frameworks to cryptocurrencies. <br>This vulnerability is trivial to exploit, results in remote code injection, and affects major projects from companies like Google, GitHub, Facebook, Kubernetes, NodeJS, Amazon, and many others. <br>Every project whose compilation depends on dynamically linked code from GitHub repositories is potentially vulnerable. <br>When the linked repository owner changes their username, it becomes immediately available to be re-registered by anyone. <br>This means that any project that linked back to the original repository URL has now become vulnerable to remote code injection through dependency hijacking. <br>A malicious attacker can register the old GitHub username, recreate the repository, and use it to serve malicious code to any project that depends on it.</p>
+        <h2>Where this idea came from</h2><p class="meta">Security research</p><p>Security Innovation repo-jacking write-up; DEF CON 34: “Install Me Maybe: Turning Claimable VS Code Extension IDs into Supply-Chain Attacks” (Silva) — same unclaimed-name takeover in the VS Code fork ecosystem (see AS29).</p><ul class='refs'><li><a href="https://blog.securityinnovation.com/repo-jacking-exploiting-the-dependency-supply-chain" rel="noopener">https://blog.securityinnovation.com/repo-jacking-exploiting-the-dependency-supply-chain</a></li><li><a href="https://github.blog/2018-04-18-new-tools-for-open-source-maintainers/#popular-repository-namespace-retirement" rel="noopener">https://github.blog/2018-04-18-new-tools-for-open-source-maintainers/#popular-repository-namespace-retirement</a></li><li><a href="https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66645" rel="noopener">https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66645</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1502</span> Define trusted package managers and repositories</li><li><span class="id">M1720</span> Implement regular patches and updates</li><li><span class="id">M1730</span> Implement code reviews</li><li><span class="id">M1732</span> Implement code scanning for security risks</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1260</span> Implement regular security audit and review</li><li><span class="id">D1261</span> Implement penetration testing</li><li><span class="id">D1262</span> Implement vulnerability assessment</li><li><span class="id">D1500</span> Configure monitoring of used artifacts and open-source libraries</li></ul>
+        <h2>Observed in incidents (1)</h2><ul><li><a href="../incidents/AS23.html">GitHub repo jacking (dependency URL takeover)</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://blog.securityinnovation.com/repo-jacking-exploiting-the-dependency-supply-chain" rel="noopener">https://blog.securityinnovation.com/repo-jacking-exploiting-the-dependency-supply-chain</a></li><li><a href="https://github.blog/2018-04-18-new-tools-for-open-source-maintainers/#popular-repository-namespace-retirement" rel="noopener">https://github.blog/2018-04-18-new-tools-for-open-source-maintainers/#popular-repository-namespace-retirement</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

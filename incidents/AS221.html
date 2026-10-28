@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Great Suspender Chrome extension hijacked · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS221</p>
+
+        <p class="meta">AS221 · 2020-10</p>
+        <h1>The Great Suspender Chrome extension hijacked</h1>
+        <p><a class="plat" href="../platforms/browser-extensions.html">Browser extensions</a></p>
+        <p>Catalogued from the tstromberg supplychain-attack-data dataset<br>(community-curated incident corpus). Included because first-party<br>sources exist for it; see the links below — vendor advisories, project<br>incident reports, and researcher write-ups. Not based on aggregator<br>coverage.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0154.html">T0154</a> Malicious IDE extension</li></ul>
+        <h2><span class="stage">supply-chain</span> campaign</h2><div class="card"><p class="meta"><a href="../techniques/T0154.html">T0154</a> · Initial Access · Malicious IDE extension</p><p>IDE/browser extension as the delivery.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://github.com/greatsuspender/thegreatsuspender/issues/1263" rel="noopener">https://github.com/greatsuspender/thegreatsuspender/issues/1263</a></li><li><a href="https://www.crx4chrome.com/crx/221789/" rel="noopener">https://www.crx4chrome.com/crx/221789/</a></li><li><a href="https://www.theregister.com/2021/02/05/chrome_extension_great_suspender/" rel="noopener">https://www.theregister.com/2021/02/05/chrome_extension_great_suspender/</a></li><li><a href="https://arstechnica.com/information-technology/2021/02/google-bans-the-great-suspender-chrome-extension-thats-used-by-millions/" rel="noopener">https://arstechnica.com/information-technology/2021/02/google-bans-the-great-suspender-chrome-extension-thats-used-by-millions/</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

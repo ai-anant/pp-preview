@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miasma botnet loader in @asyncapi npm packages · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS50</p>
+
+        <p class="meta">AS50 · 2026-07</p>
+        <h1>Miasma botnet loader in @asyncapi npm packages</h1>
+        <p><a class="plat" href="../platforms/npm.html">npm</a></p>
+        <p>On 14 July 2026 Socket found four compromised @asyncapi packages<br>(generator-helpers 1.1.1, generator-components 0.7.1, generator 3.3.1,<br>specs 6.11.2) shipping a hidden JS implant. Not an install-hook attack:<br>loading the module in Node starts a detached node -e process that<br>downloads an encrypted Miasma second stage from IPFS. Same implant<br>decoded from each injected file. Preceding versions were clean.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0121.html">T0121</a> Compromised legitimate artifact</li><li><a href="../techniques/T0109.html">T0109</a> Publish malicious artifact</li><li><a href="../techniques/T0159.html">T0159</a> Malicious artifact execution</li><li><a href="../techniques/T0181.html">T0181</a> Malicious module injection</li></ul>
+        <h2><span class="stage">supply-chain</span> @asyncapi namespace</h2><div class="card"><p class="meta"><a href="../techniques/T0121.html">T0121</a> · Resource Development · Compromised legitimate artifact</p><p>Real @asyncapi packages, malicious versions published in seconds of each other.</p></div><div class="card"><p class="meta"><a href="../techniques/T0109.html">T0109</a> · Resource Development · Publish malicious artifact</p><p>Two batches on 14 July 2026.</p></div><div class="card"><p class="meta"><a href="../techniques/T0159.html">T0159</a> · Execution · Malicious artifact execution</p><p>Runs on module load, not on npm install.</p></div><div class="card"><p class="meta"><a href="../techniques/T0181.html">T0181</a> · Initial Access · Malicious module injection</p><p>One injected source file per package, same downloader.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://socket.dev/blog/asyncapi-supply-chain-attack" rel="noopener">https://socket.dev/blog/asyncapi-supply-chain-attack</a></li><li><a href="https://opensourcemalware.com/blog/miasma-blight-reaches-microsoft-73-repos-disabled-in-105-seconds" rel="noopener">https://opensourcemalware.com/blog/miasma-blight-reaches-microsoft-73-repos-disabled-in-105-seconds</a></li><li><a href="https://safedep.io/asyncapi-generator-supply-chain-attack-miasma-rat" rel="noopener">https://safedep.io/asyncapi-generator-supply-chain-attack-miasma-rat</a></li><li><a href="https://safedep.io/miasma-worm-hits-leoplatform-20-npm-packages" rel="noopener">https://safedep.io/miasma-worm-hits-leoplatform-20-npm-packages</a></li><li><a href="https://safedep.io/miasma-worm-still-infected-github-repos" rel="noopener">https://safedep.io/miasma-worm-still-infected-github-repos</a></li><li><a href="https://safedep.io/inside-the-miasma-supply-chain-attack-toolkit" rel="noopener">https://safedep.io/inside-the-miasma-supply-chain-attack-toolkit</a></li><li><a href="https://safedep.io/config-files-that-run-code" rel="noopener">https://safedep.io/config-files-that-run-code</a></li><li><a href="https://safedep.io/miasma-worm-ai-coding-agent-config-injection" rel="noopener">https://safedep.io/miasma-worm-ai-coding-agent-config-injection</a></li><li><a href="https://www.reversinglabs.com/blog/red-hat-cloud-service-npm-packages-backdoored-in-72-seconds" rel="noopener">https://www.reversinglabs.com/blog/red-hat-cloud-service-npm-packages-backdoored-in-72-seconds</a></li><li><a href="https://www.reversinglabs.com/blog/why-software-delivery-cannot-depend-on-trust-alone" rel="noopener">https://www.reversinglabs.com/blog/why-software-delivery-cannot-depend-on-trust-alone</a></li><li><a href="https://www.aikido.dev/blog/asyncapi-npm-packages-backdoored-via-github-actions" rel="noopener">https://www.aikido.dev/blog/asyncapi-npm-packages-backdoored-via-github-actions</a></li><li><a href="https://www.stepsecurity.io/blog/compromised-next-branch-pushes-malicious-asyncapi-generator-generator-helpers-and-generator-components-to-npm" rel="noopener">https://www.stepsecurity.io/blog/compromised-next-branch-pushes-malicious-asyncapi-generator-generator-helpers-and-generator-components-to-npm</a></li><li><a href="https://www.aikido.dev/blog/compromised-github-action-codfish-steals-secrets" rel="noopener">https://www.aikido.dev/blog/compromised-github-action-codfish-steals-secrets</a></li><li><a href="https://socket.dev/blog/miasma-mini-shai-hulud-hits-immobiliarelabs-npm-packages" rel="noopener">https://socket.dev/blog/miasma-mini-shai-hulud-hits-immobiliarelabs-npm-packages</a></li><li><a href="https://socket.dev/blog/miasma-mini-shai-hulud-hits-leoplatform-npm-packages-go-ecosystem" rel="noopener">https://socket.dev/blog/miasma-mini-shai-hulud-hits-leoplatform-npm-packages-go-ecosystem</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

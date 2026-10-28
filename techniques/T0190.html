@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0190 Weak encryption · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0190</p>
+
+        <p class="meta">T0190 · Collection · TA10 · observed in 1 incident(s)</p>
+        <h1>Weak encryption</h1>
+        <div class="chips"><span class="chip">Cloud Security</span> <span class="chip">Infrastructure as code</span></div>
+        <p>A weak encryption attack in cloud security occurs when an attacker exploits vulnerabilities in the encryption mechanism used by a cloud service to gain unauthorized access to sensitive information. <br>This can happen when the encryption algorithm used by the cloud service is weak or when the encryption keys are not properly managed.</p>
+        <h2>Where this idea came from</h2><p class="meta">Public incident / advisory</p><p>Velora SDK beaconed over plain HTTP; SleeperGem fetched payloads with certificate verification off. Also OWASP weak-crypto guidance.</p><ul class='refs'><li><a href="https://opensourcemalware.com/blog/velora-formerly-paraswap-sdk-version-941-compromised-and-installing-malware" rel="noopener">https://opensourcemalware.com/blog/velora-formerly-paraswap-sdk-version-941-compromised-and-installing-malware</a></li><li><a href="https://www.stepsecurity.io/blog/sleepergem-compromised-rubygems-drop-persistent-backdoor" rel="noopener">https://www.stepsecurity.io/blog/sleepergem-compromised-rubygems-drop-persistent-backdoor</a></li><li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption" rel="noopener">https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1241</span> Use strong encryption algorithms</li><li><span class="id">M1720</span> Implement regular patches and updates</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1261</span> Implement penetration testing</li><li><span class="id">D1262</span> Implement vulnerability assessment</li><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li></ul>
+        <h2>Observed in incidents (1)</h2><ul><li><a href="../incidents/AS78.html">@velora-dex/sdk 9.4.1 build-pipeline backdoor</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption" rel="noopener">https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

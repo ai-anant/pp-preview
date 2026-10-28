@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DPRK VS Code dictionary and tasks.json droppers · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS47</p>
+
+        <p class="meta">AS47 · 2025-12</p>
+        <h1>DPRK VS Code dictionary and tasks.json droppers</h1>
+        <p><a class="plat" href="../platforms/vscode.html">VS Code / IDE</a><a class="plat" href="../platforms/git.html">Git / GitHub</a></p>
+        <p>OpenSourceMalware documented Contagious Interview / Lazarus waves that<br>hide multi-stage droppers in VS Code configuration rather than in an<br>npm tarball: spell-check dictionary files (Dec 2025) and tasks.json<br>automation (Nov 2025, Jan 2026 “Fake Font”). Opening the repo in VS Code<br>is enough for the task or dictionary hook to run. A 72-hour window in<br>January 2026 hit at least 21 small OSS maintainers via malicious tasks.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0154.html">T0154</a> Malicious IDE extension</li><li><a href="../techniques/T0152.html">T0152</a> IDE</li><li><a href="../techniques/T0111.html">T0111</a> Malicious code contribution to an open-source repository</li><li><a href="../techniques/T0210.html">T0210</a> Poison AI coding-agent config or workspace</li><li><a href="../techniques/T0159.html">T0159</a> Malicious artifact execution</li></ul>
+        <h2><span class="stage">supply-chain</span> VS Code workspace config</h2><div class="card"><p class="meta"><a href="../techniques/T0154.html">T0154</a> · Initial Access · Malicious IDE extension</p><p>Malware in dictionary files and tasks.json, not a Marketplace extension.</p></div><div class="card"><p class="meta"><a href="../techniques/T0152.html">T0152</a> · Execution · IDE</p><p>VS Code task automation / workspace open executes the loader.</p></div><div class="card"><p class="meta"><a href="../techniques/T0111.html">T0111</a> · Resource Development · Malicious code contribution to an open-source repository</p><p>Config committed into the victim or bait repository.</p></div><div class="card"><p class="meta"><a href="../techniques/T0210.html">T0210</a> · Persistence · Poison AI coding-agent config or workspace</p><p>Same workspace-dir pattern later seen in DUSTMAKER / Hades.</p></div><div class="card"><p class="meta"><a href="../techniques/T0159.html">T0159</a> · Execution · Malicious artifact execution</p><p>BeaverTail / InvisibleFerret-class payloads on the developer machine.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://opensourcemalware.com/blog/dprk-malware-microsoft-vscode-dictionary-files" rel="noopener">https://opensourcemalware.com/blog/dprk-malware-microsoft-vscode-dictionary-files</a></li><li><a href="https://opensourcemalware.com/blog/latest-contagious-interview-malware-campaign-abuses-microsoft-vscode-tasks" rel="noopener">https://opensourcemalware.com/blog/latest-contagious-interview-malware-campaign-abuses-microsoft-vscode-tasks</a></li><li><a href="https://opensourcemalware.com/blog/dprk-contagious-interview-campaign-fake-font-uses-malicious-vs-code-fonts" rel="noopener">https://opensourcemalware.com/blog/dprk-contagious-interview-campaign-fake-font-uses-malicious-vs-code-fonts</a></li><li><a href="https://opensourcemalware.com/blog/small-open-source-maintainers-targeted-by-vs-code-tasks-malware" rel="noopener">https://opensourcemalware.com/blog/small-open-source-maintainers-targeted-by-vs-code-tasks-malware</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

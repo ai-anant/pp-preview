@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hijacked AI coding assistant spreads Shai-Hulud · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS27</p>
+
+        <p class="meta">AS27 · 2026-09</p>
+        <h1>Hijacked AI coding assistant spreads Shai-Hulud</h1>
+        <p><a class="plat" href="../platforms/pypi.html">PyPI</a><a class="plat" href="../platforms/git.html">Git / GitHub</a><a class="plat" href="../platforms/ai-agents.html">AI coding agents</a><a class="plat" href="../platforms/vscode.html">VS Code / IDE</a><a class="plat" href="../platforms/workstation.html">Developer workstation</a></p>
+        <p>Mandiant&#x27;s AI Risk and Resilience 2026 report (case study 1) describes an<br>IR where an attacker hijacked an active AI coding-assistant session. The<br>assistant recommended attacker-poisoned software; the human accepted; the<br>same session installed an infostealer via PyPI, stole GitHub OAuth tokens,<br>and deployed Shai-Hulud across about 100 internal repositories. The actor<br>then poisoned a package in the company&#x27;s official namespace, which a<br>second employee pulled.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0152.html">T0152</a> IDE</li><li><a href="../techniques/T0210.html">T0210</a> Poison AI coding-agent config or workspace</li><li><a href="../techniques/T0109.html">T0109</a> Publish malicious artifact</li><li><a href="../techniques/T0151.html">T0151</a> Installation scripts</li><li><a href="../techniques/T0112.html">T0112</a> Compromised token</li><li><a href="../techniques/T0169.html">T0169</a> Push implants across repositories</li><li><a href="../techniques/T0200.html">T0200</a> Proprietary data stolen</li><li><a href="../techniques/T0121.html">T0121</a> Compromised legitimate artifact</li></ul>
+        <h2><span class="stage">supply-chain</span> AI coding-assistant session</h2><div class="card"><p class="meta"><a href="../techniques/T0152.html">T0152</a> · Execution · IDE</p><p>The live assistant session was the install oracle.</p></div><div class="card"><p class="meta"><a href="../techniques/T0210.html">T0210</a> · Persistence · Poison AI coding-agent config or workspace</p><p>Hijacked session recommended and then installed poisoned software.</p></div><div class="card"><p class="meta"><a href="../techniques/T0109.html">T0109</a> · Resource Development · Publish malicious artifact</p><p>Poisoned PyPI package plus later official-namespace poison.</p></div><div class="card"><p class="meta"><a href="../techniques/T0151.html">T0151</a> · Execution · Installation scripts</p><p>Infostealer ran from the accepted PyPI install.</p></div><div class="card"><p class="meta"><a href="../techniques/T0112.html">T0112</a> · Initial Access · Compromised token</p><p>GitHub OAuth tokens stolen from the developer environment.</p></div><div class="card"><p class="meta"><a href="../techniques/T0169.html">T0169</a> · Lateral Movement · Push implants across repositories</p><p>Shai-Hulud spread across about 100 internal repositories.</p></div><div class="card"><p class="meta"><a href="../techniques/T0200.html">T0200</a> · Impact · Proprietary data stolen</p><p>Secrets and product source were taken from those repos.</p></div><div class="card"><p class="meta"><a href="../techniques/T0121.html">T0121</a> · Resource Development · Compromised legitimate artifact</p><p>A package in the company&#x27;s official namespace was then poisoned.</p></div>
+        <div class="card gaps"><h3>Framework gaps noted</h3><ul><li>AI-recommended dependencies have no lockfile and no first-class technique beyond T0210/T0152.</li></ul></div>
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://cloud.google.com/security/resources/ai-risk-and-resilience-2026" rel="noopener">https://cloud.google.com/security/resources/ai-risk-and-resilience-2026</a></li><li><a href="https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai" rel="noopener">https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai</a></li><li><a href="https://safedep.io/ai-coding-assistant-hijack-shai-hulud" rel="noopener">https://safedep.io/ai-coding-assistant-hijack-shai-hulud</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

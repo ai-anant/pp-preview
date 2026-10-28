@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TeamPCP DUSTMAKER AI workspace poisoning · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Incidents</a> / AS33</p>
+
+        <p class="meta">AS33 · 2026-09</p>
+        <h1>TeamPCP DUSTMAKER AI workspace poisoning</h1>
+        <p><a class="plat" href="../platforms/npm.html">npm</a><a class="plat" href="../platforms/github-actions.html">GitHub Actions</a><a class="plat" href="../platforms/ai-agents.html">AI coding agents</a><a class="plat" href="../platforms/mcp.html">MCP</a><a class="plat" href="../platforms/git.html">Git / GitHub</a><a class="plat" href="../platforms/vscode.html">VS Code / IDE</a></p>
+        <p>Google Threat Intelligence Group&#x27;s AI Threat Tracker describes DUSTMAKER<br>(TeamPCP / UNC6780) as the JS/CI successor to SANDCLOCK. It drops hidden<br>.claude / .cursor / .vscode content, prompt-injects LLM scanners so they<br>skip the JS underneath, and uses trojanized MCP servers. Packages<br>published with a valid token pass agent trust checks. A separate Q2 case<br>used an AI coding chatbot plus markdown playbooks to build credential<br>harvesting in under six hours after a cloud compromise.</p>
+        <h2>Mapped techniques</h2>
+        <ul><li><a href="../techniques/T0210.html">T0210</a> Poison AI coding-agent config or workspace</li><li><a href="../techniques/T0154.html">T0154</a> Malicious IDE extension</li><li><a href="../techniques/T0109.html">T0109</a> Publish malicious artifact</li><li><a href="../techniques/T0206.html">T0206</a> Forge or omit build provenance</li><li><a href="../techniques/T0140.html">T0140</a> Harvest tokens from environment variables</li></ul>
+        <h2><span class="stage">supply-chain</span> AI coding workspaces</h2><div class="card"><p class="meta"><a href="../techniques/T0210.html">T0210</a> · Persistence · Poison AI coding-agent config or workspace</p><p>Hidden .claude/.cursor/.vscode drops and trojanized MCP servers.</p></div><div class="card"><p class="meta"><a href="../techniques/T0154.html">T0154</a> · Initial Access · Malicious IDE extension</p><p>Workspace-dir poisoning looks like developer clutter.</p></div><div class="card"><p class="meta"><a href="../techniques/T0109.html">T0109</a> · Resource Development · Publish malicious artifact</p><p>Valid-token packages pass automated agent trust checks.</p></div><div class="card"><p class="meta"><a href="../techniques/T0206.html">T0206</a> · Defense Evasion · Forge or omit build provenance</p><p>Provenance-presence is not trust when the token that published is valid.</p></div><div class="card"><p class="meta"><a href="../techniques/T0140.html">T0140</a> · Credential Access · Harvest tokens from environment variables</p><p>JS payload built for CI credential theft.</p></div>
+        
+        <h2>Sources</h2>
+        <ul class='refs'><li><a href="https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai" rel="noopener">https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0179 Exposed webHook · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0179</p>
+
+        <p class="meta">T0179 · Initial Access · TA03 · identified from research/guidance</p>
+        <h1>Exposed webHook</h1>
+        <div class="chips"><span class="chip">CI/CD Posture</span></div>
+        <p>Exposed WebHook attack in CI/CD posture is a technique where an attacker exploits a publicly accessible or improperly authenticated and authorized WebHook endpoint in a CI/CD setup. <br>The attacker sends malicious payloads or triggers unauthorized actions through the WebHook, gaining unauthorized access to the CI/CD pipeline or associated resources. <br>The consequences can include unauthorized access to data, compromise of the CI/CD pipeline, injection of malicious code, or disruption of the software development process.</p>
+        <h2>Where this idea came from</h2><p class="meta">Security research</p><p>Identified in published CI/CD or supply-chain security research cited below.</p><ul class='refs'><li><a href="https://www.cidersecurity.io/blog/research/how-we-abused-repository-webhooks-to-access-internal-ci-systems-at-scale/" rel="noopener">https://www.cidersecurity.io/blog/research/how-we-abused-repository-webhooks-to-access-internal-ci-systems-at-scale/</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1790</span> Limit access to webhooks</li><li><span class="id">M1791</span> Use secure communication channels</li><li><span class="id">M1792</span> Implement secure WebHook configurations</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li><li><span class="id">D1590</span> Implement continuous monitoring and logging of the CI/CD process</li><li><span class="id">D1790</span> Audit and review WebHook configurations</li><li><span class="id">D1791</span> Analyze WebHook payloads and activity</li></ul>
+        <div class='notice'><strong>Identified, not yet observed here.</strong> This technique set includes behaviors from pentest research, defender guidance, and analog attacker behavior — not only from named public breaches. No incident in this corpus maps here yet.</div>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://www.cidersecurity.io/blog/research/how-we-abused-repository-webhooks-to-access-internal-ci-systems-at-scale/" rel="noopener">https://www.cidersecurity.io/blog/research/how-we-abused-repository-webhooks-to-access-internal-ci-systems-at-scale/</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>

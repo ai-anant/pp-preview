@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T0142 Accidental public disclosure of internal resources · Poisoned Pipeline</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer data-domain="poisonedpipeline.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+    <header class="top" id="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html">Poisoned Pipeline</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../matrix.html">Technique matrix</a>
+          <a href="../cicd.html">CI/CD matrix</a>
+          <a href="../techniques/index.html">Techniques</a>
+          <a href="../mitigations/index.html">Mitigations</a>
+          <a href="../incidents/index.html">Incident mapping</a>
+          <a href="../platforms/index.html">Platforms</a>
+          <a href="../stories/index.html">Attack stories</a>
+          <a href="../guidance.html">Guidance</a>
+          <a href="../origins.html">Origins</a>
+          <a href="../talks.html">Talks</a>
+          <a href="../sources.html">Sources</a>
+          <a href="../changelog.html">Changelog</a>
+          <a href="../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+<main>
+<p class="crumb">Poisoned Pipeline / <a href="index.html">Techniques</a> / T0142</p>
+
+        <p class="meta">T0142 · Reconnaissance · TA01 · observed in 2 incident(s)</p>
+        <h1>Accidental public disclosure of internal resources</h1>
+        <div class="chips"><span class="chip">Cloud Security</span></div>
+        <p>This technique involves searching for internal resources that have been inadvertently made public and are accessible to anyone on the internet.<br>An attacker can use this technique to identify internal resources that may contain sensitive information such as passwords, API keys, or other credentials. <br>They can also use this technique to identify other internal resources that may be of interest, such as databases or servers.<br>There are several ways that internal resources can be accidentally made public, including misconfigured security settings, unintentional exposure of credentials, or through the use of unsecured storage buckets. <br>When resources are accidentally made public, it can be easy for an attacker to locate and access them.</p>
+        <h2>Where this idea came from</h2><p class="meta">Security article</p><p>Cited from a security article or vendor blog in the original YAML; not a first-party incident report.</p><ul class='refs'><li><a href="https://duo.com/blog/beyond-s3-exposed-resources-on-aws" rel="noopener">https://duo.com/blog/beyond-s3-exposed-resources-on-aws</a></li></ul>
+        
+        <h2>Mitigations</h2>
+        <ul><li><span class="id">M1240</span> Enable data encryption at rest</li><li><span class="id">M1250</span> Enable data encryption in transit</li><li><span class="id">M1550</span> Implement strict access control for clouds</li><li><span class="id">M1720</span> Implement regular patches and updates</li></ul>
+        <h2>Detections</h2>
+        <ul><li><span class="id">D1260</span> Implement regular security audit and review</li><li><span class="id">D1261</span> Implement penetration testing</li><li><span class="id">D1262</span> Implement vulnerability assessment</li><li><span class="id">D1510</span> Implement Intrusion Detection System and anti-malware</li><li><span class="id">D1520</span> Implement endpoint detection and response system</li></ul>
+        <h2>Observed in incidents (2)</h2><ul><li><a href="../incidents/AS6.html">SolarWinds</a></li><li><a href="../incidents/AS3.html">Codecov Breach</a></li></ul>
+        <h2>References</h2>
+        <ul class='refs'><li><a href="https://duo.com/blog/beyond-s3-exposed-resources-on-aws" rel="noopener">https://duo.com/blog/beyond-s3-exposed-resources-on-aws</a></li></ul>
+        
+</main>
+
+    <footer>
+      <p>Powered by <a href="https://cyfinoid.com">Cyfinoid Research</a></p>
+    </footer>
+<script>
+(function () {
+  var h = document.getElementById('site-header');
+  var b = h && h.querySelector('.nav-toggle');
+  if (!b) return;
+  function close() { h.classList.remove('nav-open'); b.setAttribute('aria-expanded', 'false'); }
+  b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = h.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && h.classList.contains('nav-open')) { close(); b.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (h.classList.contains('nav-open') && !h.contains(e.target)) close();
+  });
+})();
+</script>
+</body>
+</html>
