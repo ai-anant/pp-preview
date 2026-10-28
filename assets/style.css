@@ -220,7 +220,7 @@ pre { overflow-x: auto; }
   .bars { height: 7rem; }
   .tline span { font-size: 0.6rem; visibility: hidden; }
   .tline span:nth-child(5n+1) { visibility: visible; }
-  .matrix { grid-template-columns: none !important; }
+  .matrix { grid-template-columns: none !important; min-width: 0 !important; }
   .col { min-width: 0; }
   table { display: block; overflow-x: auto; }
   .crumb { font-size: 0.78rem; }
